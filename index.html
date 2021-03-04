@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <title>Vue Mastery</title>
@@ -8,12 +9,31 @@
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
   </head>
+
   <body>
     <div id="app">
-      <h1>Product goes here</h1>
+      <h1>{{solar_system + ":" + " " + planet_1}}</h1>
+      <p>{{description_mercury}}</p>
+
     </div>
 
-    <!-- Import Js -->
+    <!-- Так делать низя 2 -->
+    <div id="app_1">
+      <h2>{{venus}}</h2>
+    </div>
+
+    <!-- Import App -->
     <script src="./main.js"></script>
+
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+
+    <!-- Так делать низя 1 -->
+    <script>
+      const mountedApp_2 = app_1.mount('#app_1')
+    </script>
   </body>
+
 </html>
