@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <title>Vue Mastery</title>
@@ -8,12 +9,13 @@
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
   </head>
+
   <body>
     <div id="app">
       <div class="nav-bar"></div>
 
       <div class="cart">Cart({{ cart }})</div>
-      
+
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
@@ -26,8 +28,10 @@
             <ul>
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
-            <div v-for="variant in variants" :key="variant.id">{{ variant.color }}</div>
-            <button class="button">Add to Cart</button>
+            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">
+              {{ variant.color }}
+            </div>
+            <button class="button" @click="addToCart">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -41,4 +45,5 @@
       const mountedApp = app.mount('#app')
     </script>
   </body>
+
 </html>
