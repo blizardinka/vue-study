@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <title>Vue Mastery</title>
@@ -8,22 +9,27 @@
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
   </head>
+
   <body>
+    <link rel="author" href="https://translate.google.com/?hl=de">
     <div id="app">
-      <div class="nav-bar"></div>
-      
+      <div class="nav-bar">
+
+      </div>
+
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
             <!-- image goes here -->
+            <img :src="image">
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
+            <a :href="link_to_google_translate">translator</a>
           </div>
         </div>
       </div>
     </div>
-
     <!-- Import App -->
     <script src="./main.js"></script>
 
@@ -32,4 +38,5 @@
       const mountedApp = app.mount('#app')
     </script>
   </body>
+
 </html>
