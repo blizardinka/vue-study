@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <title>Vue Mastery</title>
@@ -8,22 +9,95 @@
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
   </head>
+
   <body>
     <div id="app">
       <div class="nav-bar"></div>
-      
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
             <img v-bind:src="image">
           </div>
-          <div class="product-info">
-            <h1>{{ product }}</h1>
+          <section class="product-info">
+            <header>
+              <h1>{{ product }}</h1>
+            </header>
             <p v-if="inStock">In Stock</p>
             <p v-else>Out of Stock</p>
-          </div>
+            <ul>
+              <li v-for="detail in details">{{detail}}</li>
+            </ul>
+            <p>Colors</p>
+            <div v-for="variant in variants" :key="variant.id" aria-label="colors">
+              {{variant.color}}
+            </div>
+            <p>Sizes</p>
+            <div v-for="size in sizes" :key="size.id" aria-label="sizes">
+              {{size.variant}}
+            </div>
+            <p v-if="hearthstone">hearthstone cards</p>
+            <ul>
+              <li v-for="card in cards">{{card}}</li>
+            </ul>
+          </section>
         </div>
       </div>
+      <section>
+        <h1>Communication</h1>
+        <p>There are various methods of communication. This section
+          covers a few of the important ones used by the project.</p>
+        <hr>
+        <p>Communication stones seem to come in pairs and have mysterious
+          properties:</p>
+        <ul>
+          <li>They can transfer thoughts in two directions once activated
+            if used alone.</li>
+          <li>If used with another device, they can transfer one’s
+            consciousness to another body.</li>
+          <li>If both stones are used with another device, the
+            consciousnesses switch bodies.</li>
+        </ul>
+        <hr>
+        <p>Radios use the electromagnetic spectrum in the meter range and
+          longer.</p>
+        <hr>
+        <p>Signal flares use the electromagnetic spectrum in the
+          nanometer range.</p>
+      </section>
+      <section>
+        <h1>Food</h1>
+        <p>All food at the project is rationed:</p>
+        <dl>
+          <dt>Potatoes</dt>
+          <dd>Two per day</dd>
+          <dt>Soup</dt>
+          <dd>One bowl per day</dd>
+        </dl>
+        <hr>
+        <p>Cooking is done by the chefs on a set rotation.</p>
+      </section>
+      ===========================================
+      <article>
+        <header>
+          <h2><a href="https://herbert.io">Short note on wearing shorts</a></h2>
+          <p>Posted on Wednesday, 10 February 2016 by Patrick Lauke.
+            <a href="https://herbert.io/short-note/#comments">6 comments</a>
+          </p>
+        </header>
+        <p>A fellow traveller posed an interesting question: Why do you wear shorts rather than
+          longs? The person was wearing culottes as the time, so I considered the question equivocal in nature,
+          but I attempted to provide an honest answer despite the dubiousness of the questioner’s dress.</p>
+        <p>The short answer is that I enjoy wearing shorts, the long answer is...</p>
+        <p><a href="https://herbert.io/short-note/">Continue reading: Short note on
+            wearing shorts</a></p>
+      </article>
+      ==========================================
+      <pre><code class="lang-c"><span class="keyword">for</span> (<span class="ident">j</span> = 0; <span class="ident">j</span> &lt; 256; <span class="ident">j</span>++) {
+        <span class="ident">i_t3</span> = (<span class="ident">i_t3</span> & 0x1ffff) | (<span class="ident">j</span> &lt;&lt; 17);
+        <span class="ident">i_t6</span> = (((((((<span class="ident">i_t3</span> >> 3) ^ <span class="ident">i_t3</span>) >> 1) ^ <span class="ident">i_t3</span>) >> 8) ^ <span class="ident">i_t3</span>) >> 5) & 0xff;
+        <span class="keyword">if</span> (<span class="ident">i_t6</span> == <span class="ident">i_t1</span>)
+          <span class="keyword">break</span>;
+      }</code></pre>
     </div>
 
     <!-- Import App -->
@@ -34,4 +108,5 @@
       const mountedApp = app.mount('#app')
     </script>
   </body>
+
 </html>
