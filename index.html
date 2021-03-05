@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <title>Vue Mastery</title>
@@ -8,10 +9,11 @@
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
   </head>
+
   <body>
     <div id="app">
       <div class="nav-bar"></div>
-      
+
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
@@ -19,6 +21,17 @@
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
+            <p v-if="inStock">In Stock</p>
+            <p v-else>Out of Stock</p>
+            <p v-if="inventory > 10">In Stock with logick</p>
+            <p v-else-if="inventory <= 10 && inventory > 0">
+              Almost sold out
+            </p>
+            <p v-show="inStock">In Stock</p>
+            <p v-if="onSale">
+              On Sale
+            </p>
+            <p v-else>Sold out</p>
           </div>
         </div>
       </div>
@@ -32,4 +45,5 @@
       const mountedApp = app.mount('#app')
     </script>
   </body>
+
 </html>
