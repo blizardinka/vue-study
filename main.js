@@ -1,10 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
-            styles: {
-                color:"red",
-                fontSize: "14px",
-            },
+            newButtonProperty: false,
             cart:0,
             product: 'Socks',
             brand: 'Vue Mastery',
