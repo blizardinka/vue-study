@@ -1,4 +1,16 @@
 app.component("product-display", {
+  /* if we want to recive a value from data() in main.js
+  we need to add props option in "app.component"
+*/
+  props: {
+    premium: {
+      /* Option Validation
+       premium need to be type "boolean" adn value "true"
+      */
+      type: Boolean,
+      requiered: true,
+    },
+  },
   template: /* HTML */ /*html*/ `
     <div class="product-display">
       <div class="product-container">
@@ -10,6 +22,21 @@ app.component("product-display", {
 
           <p v-if="inStock">In Stock</p>
           <p v-else>Out of Stock</p>
+          <!-- To use vue function or variable in html code
+          we have to use {{ double curly brackets }} -->
+          <!-- 
+          Step 1.1.- Add tag with info;
+          - Add double curly brackets
+          - add methods in curly brackets.
+          Method will manipulate data.
+          Data we will get from main.js 
+          data() {
+            return {
+              someProps: someValue,
+            };
+          },
+          -->
+          <p>Shipping: {{ newShipping }}</p>
           <ul>
             <li v-for="detail in details">{{ detail }}</li>
           </ul>
@@ -64,6 +91,9 @@ app.component("product-display", {
       this.selectedVariant = index;
     },
   },
+  /*
+  @Computed methods is using to manage html content
+  */
   computed: {
     title() {
       return this.brand + " " + this.product;
@@ -73,6 +103,15 @@ app.component("product-display", {
     },
     inStock() {
       return this.variants[this.selectedVariant].image;
+    },
+    /* Step 1.2.Specify method logic
+    The method shows diferent option for Shipping
+    */
+    newShipping() {
+      if (this.premium) {
+        return "Free";
+      }
+      return 2.99;
     },
   },
 });
