@@ -1,17 +1,19 @@
 app.component("product-details", {
   props: {
     details: {
-      type: String,
+      type: Array,
     },
   },
   template: /* HTML */ /*html*/ `
     <div class="product-details">
-      <p>Details: {{ showDetails }}</p>
+      <p>{{ showDetails }}</p>
     </div>
   `,
   computed: {
     showDetails() {
-      return this.details;
+      this.details.array.forEach((detail) => {
+        return detail;
+      });
     },
   },
 });
