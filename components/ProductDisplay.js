@@ -2,6 +2,9 @@ app.component("product-display", {
   /* if we want to recive a value from data() in main.js
   we need to add props option in "app.component"
 */
+  /*
+Step 1.4. Add Props in Component to make allow using props from main.js
+*/
   props: {
     premium: {
       /* Option Validation
@@ -83,6 +86,10 @@ app.component("product-display", {
       ],
     };
   },
+
+  /* 
+  Methods is using for interaction in UI
+  */
   methods: {
     addToCart() {
       this.cart += 1;
