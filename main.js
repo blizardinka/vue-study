@@ -4,7 +4,7 @@ const app = Vue.createApp({
       cart: 0,
       //Step 1.3. All props need to write in return{} section to use these in our components
       premium: true,
-      details: "dsdsfdfadsfafafda",
+      details: detValue,
     };
   },
   methods: {},
