@@ -42,7 +42,7 @@ Step 1.4. Add Props in Component to make allow using props from main.js
           <p>Shipping: {{ newShipping }}</p>
           <ul>
             <!-- <li v-for="detail in details">{{ detail }}</li>-->
-            <product-details> {{ showDetails }} </product-details>
+            <product-details :details="details"></product-details>
           </ul>
 
           <div

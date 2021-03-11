@@ -4,16 +4,5 @@ app.component("product-details", {
       type: Array,
     },
   },
-  template: /* HTML */ /*html*/ `
-    <div class="product-details">
-      <p>{{ showDetails }}</p>
-    </div>
-  `,
-  computed: {
-    showDetails() {
-      this.details.array.forEach((detail) => {
-        return detail;
-      });
-    },
-  },
+  template: /* HTML */ /*html*/ ` <div v-for="detail in details"></div> `,
 });
